@@ -9,22 +9,20 @@ const options = {
 		"Content-Type": "application/x-www-form-urlencoded",
 	},
 };
-setInterval(() => {
-	const req = https.request(options, (res) => {
-		console.log(`STATUS: ${res.statusCode}`);
-		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-		res.setEncoding("utf8");
-		res.on("data", (chunk) => {
-			console.log(`BODY: ${chunk}`);
-		});
-		res.on("end", () => {
-			console.log(`${res.statusCode} - No more data in response.`);
-		});
+const req = https.request(options, (res) => {
+	console.log(`STATUS: ${res.statusCode}`);
+	console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+	res.setEncoding("utf8");
+	res.on("data", (chunk) => {
+		console.log(`BODY: ${chunk}`);
 	});
-
-	req.on("error", (e) => {
-		console.log(`problem with request: ${e.message}`);
+	res.on("end", () => {
+		console.log(`${res.statusCode} - No more data in response.`);
 	});
+});
 
-	req.end();
-}, 1500000);
+req.on("error", (e) => {
+	console.log(`problem with request: ${e.message}`);
+});
+
+req.end();
