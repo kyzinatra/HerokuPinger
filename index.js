@@ -39,6 +39,6 @@ switch (String(process.argv[2])) {
 		ping();
 		break;
 	default:
-		setInterval(ping, process.argv[4] || 1500000);
+		setInterval(ping, process.argv[4] || 900000);
 		break;
 }
