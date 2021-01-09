@@ -1,0 +1,16 @@
+{
+	"name": "dishes",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/scripts/index.ts",
+	"scripts": {
+		"dev": "nodemon src/scripts/index.js",
+		"start": "node src/scripts/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"nodemon": "^2.0.6"
+	}
+}
